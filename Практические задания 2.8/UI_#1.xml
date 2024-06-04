@@ -203,7 +203,7 @@
 		</field>
 	</block>
 	<block name="Учебный раздел" yearRequisite="integer_Год" selectedYear="current">	
-	    <field name="PlanPablik223" value="Актуальные" >
+	    <field name="MyPoiskFolder" value="Тестовая поисковая папка" >
 			<access>
 				<workgroup name="Инициаторы"/> 
 				<workgroup name="Бюджетный комитет"/> 
@@ -216,19 +216,6 @@
 				<workgroup name="Юридический департамент"/>
 			</access>
 		</field>
-		<field name="Plan223" value="Все" >
-			<access>
-				<workgroup name="Инициаторы"/> 
-				<workgroup name="Бюджетный комитет"/> 
-				<workgroup name="Комиссия по закупкам"/> 
-				<workgroup name="Курирующий Зам Пред"/> 
-				<workgroup name="Руководитель инициатора"/> 
-				<workgroup name="Специалист по закупкам"/> 
-				<workgroup name="Суперпользователи"/> 
-				<workgroup name="Управление бюджетирования"/>
-				<workgroup name="Юридический департамент"/>
-			</access>
-		</field>	
 	</block>
 	<block name="Планы закупок" yearRequisite="integer_Год" selectedYear="current">	
 	    <field name="PlanPablik223" value="Актуальные" >
