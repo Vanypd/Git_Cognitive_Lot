@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <view>
+        <rows>
+            <!-- Блоки-вкладки -->
+            <row>
+                <column>
+                    <block id="genInfo" name="Общие сведения">
+                        <rows>
+                            <!-- Блоки информации в рабочей области -->
+                            <row>
+                                <column>
+                                    <block id="11" name="Регистрационные данные">
+                                        <rows>
+                                            <row>
+                                                <field fieldType="field" key="|Document|Регистрационный_номер" name="Регистрационный номер" valueType="text" />
+                                            </row>
+                                            <row>
+                                                <field fieldType="field" key="|Document|Дата_создания" name="Дата создания" valueType="date" />
+                                            </row>
+                                            <row>
+                                                <field fieldType="field" key="|Document|Редакция" name="Редакция" valueType="integer" />
+                                            </row>
+                                            <row>
+                                                <field fieldType="field" key="|Document|Статус" name="Статус" valueType="text" />
+                                            </row>
+                                        </rows>     
+                                    </block>
+                                </column>
+                            </row>
+                            <row>
+                                <column>
+                                    <block id="12" name="Ответственный по документу">
+                                        <row>
+                                            <field fieldType="field" key="|Document|ФИО_ответственного" name="ФИО ответственного" valueType="text" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Группа" name="Группа" valueType="text" />
+                                            <!-- Для получения данных из словаря edit-tool="dictionary:ИмяСловаря" -->
+                                        </row>
+                                    </block>
+                                </column>
+                            </row>
+                            <row>
+                                <column>
+                                    <block id="13" name="Основные сведения">
+                                        <row>
+                                            <field fieldType="field" key="|Document|Дополнительная_информация" name="Дополнительная информация" valueType="longtext" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Стоимость" name="Стоимость" valueType="integer" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Налог" name="Налог, %" valueType="integer" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Сумма_налога" name="Сумма налога" valueType="integer" />
+                                        </row>
+                                    </block>
+                                </column>
+                            </row>
+                            <row>
+                                <column>
+                                    <block id="14">
+                                        <columns>
+                                            <column fieldType="property" key="|Document|Table|Поле_1" name="Поле 1" valueType="text" weight="40"/>
+                                            <column fieldType="property" key="|Document|Table|Поле_2" name="Поле 2" valueType="text" weight="40"/>
+                                            <column fieldType="property" key="|Document|Table|Поле_3" name="Поле 3" valueType="integer" weight="20"/>
+                                        </columns>
+                                    </block>
+                                </column>
+                            </row>
+                        </rows>
+                    </block>
+                    <block>
+                        <rows>
+                            <row>
+                                <column>
+                                    <block id="21">
+                                        <row>
+                                            <field fieldType="field" key="|Document|Логическое_поле_2" name="Логическое поле 2" valueType="boolean" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Логическое_поле_3" name="Логическое поле 3" valueType="boolean" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Согласующий" name="Согласующий" valueType="addressbook" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Текстовое_поле_5" name="Текстовое поле 5" valueType="text" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Дата_3" name="Дата 3" valueType="date" />
+                                        </row>
+                                    </block>
+                                </column>
+                            </row>
+                            <row>
+                                <column>
+                                    <block id="22">
+                                        <row>
+                                            <field fieldType="field" key="|Document|Категория" name="Категория" valueType="text" />
+                                        </row>
+                                        <row>
+                                            <field fieldType="field" key="|Document|Комментарий" name="Комментарий" valueType="longtext" />
+                                        </row>
+                                    </block>
+                                </column>
+                            </row>
+                        </rows>
+                    </block>
+                </column>
+            <//row>
+            <row>
+                <column>
+                    <block id="[block_id]" name="[displayed_name]">
+                        <rows>
+
+                        </rows>
+                    </block>
+                </column>
+            </row>
+        </rows>
+    </view>
+    <edit>
+
+    </edit>
+    <scripts></scripts>
+</root>
