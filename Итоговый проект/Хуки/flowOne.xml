@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Hooks>
+    <LinksModify>
+        <LinkCurrentDoc/>
+    </LinksModify>
+
+    <FieldsModify>
+        <SetField dst="|Document|Имя_потока" value="Поток 1"/>
+
+		<CopyField src="|Document|Регистрационный_номер" />
+        <CopyField src="|Document|Редакция" />
+        <CopyField src="|Document|Статус" />
+
+        <CopyField src="|Document|ФИО_ответственного" />
+        <CopyField src="|Document|Группа" />
+
+        <CopyField src="|Document|Дополнительная_информация" />
+        <CopyField src="|Document|Стоимость" />
+        <CopyField src="|Document|Налог" />
+        <CopyField src="|Document|Сумма_налога" />
+
+        <CopyField src="|Document|Table|Поле_1" />
+        <CopyField src="|Document|Table|Поле_2" />
+        <CopyField src="|Document|Table|Поле_3" />
+
+        <CopyField src="|Document|Логическое_поле_2" />
+        <CopyField src="|Document|Логическое_поле_3" />
+        <CopyField src="|Document|Согласующий" />
+        <CopyField src="|Document|Текстовое_поле_5" />
+        <CopyField src="|Document|Дата_3" />
+
+        <CopyField src="|Document|Категория" />
+        <CopyField src="|Document|Комментарий" />
+    </FieldsModify>
+
+    <OnDocumentCreated transaction="single">
+        <Aggregation>
+            <Select>
+				...
+            </Select>
+            <Actions>
+				<SetField dst="|Document|Статус" value="Новый"/>
+            </Actions>
+        </Aggregation>
+        <ConditionalActions>
+            <Select>
+				...
+            </Select>
+            <Actions>
+				...
+            </Actions>
+        </ConditionalActions>
+        <NamedConstants>
+            <Constant>
+                <Setting key="IncrementedElementPath" value="|Document|Регистрационный_номер"/>
+                <Setting key="CounterNameFormat" value="({|Document|Имя_потока})"/>
+            </Constant>   
+        </NamedConstants>
+    </OnDocumentCreated>
+    <OnRegcardEdited transaction="single">
+        <Aggregation>
+			...
+        </Aggregation>
+        <ConditionalActions>
+			...
+        </ConditionalActions>
+    </OnRegcardEdited>
+	...
+</Hooks>
