@@ -5,7 +5,7 @@
     </LinksModify>
 
     <FieldsModify>
-        <SetField dst="|Document|Имя_потока" value="Поток 1"/>
+        
 
 		<CopyField src="|Document|Регистрационный_номер" />
         <CopyField src="|Document|Редакция" />
@@ -39,7 +39,10 @@
 
             </Select>
             <Actions>
-				<SetField dst="|Document|Статус" value="Новый"/>
+                <SetField targetFlow="{current}" targetField="|Document|Имя_потока" value="Поток 1"/>
+				<SetField targetFlow="{current}" targetField="|Document|Статус" value="Новый"/>
+                <SetField targetFlow="{current}" targetField="|Document|Редакция" value="1"/>
+                <SetField targetFlow="{current}" targetField="|Document|Дата_создания" value="{today}"/>
             </Actions>
         </Aggregation>
         <ConditionalActions>
