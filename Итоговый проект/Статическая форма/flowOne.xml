@@ -110,7 +110,7 @@
                         </rows>
                     </block>
                 </column>
-            <//row>
+            </row>
             <row>
                 <column>
                     <block id="[block_id]" name="[displayed_name]">

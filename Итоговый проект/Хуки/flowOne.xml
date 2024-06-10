@@ -36,7 +36,7 @@
     <OnDocumentCreated transaction="single">
         <Aggregation>
             <Select>
-				...
+
             </Select>
             <Actions>
 				<SetField dst="|Document|Статус" value="Новый"/>
@@ -44,10 +44,10 @@
         </Aggregation>
         <ConditionalActions>
             <Select>
-				...
+
             </Select>
             <Actions>
-				...
+
             </Actions>
         </ConditionalActions>
         <NamedConstants>
@@ -59,11 +59,11 @@
     </OnDocumentCreated>
     <OnRegcardEdited transaction="single">
         <Aggregation>
-			...
+
         </Aggregation>
         <ConditionalActions>
-			...
+
         </ConditionalActions>
     </OnRegcardEdited>
-	...
+
 </Hooks>
