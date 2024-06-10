@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by LEGO (LEGO) -->
-<FORM_DESCRIPTION xmlns="http://www.cognitive.ru/XML/2001/ctform"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cognitive.ru/XML/2001/ctform  ctform.xsd" name="FlowOne">
-  <CONTENT_MODEL>
+<FORM_DESCRIPTION xmlns="http://www.cognitive.ru/XML/2001/ctform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cognitive.ru/XML/2001/ctform  ctform.xsd" name="FlowOne">
+  <CONTENT_MODEL dfattchfiles="|Document|files" dfnumberdoc="|Document|Число_регномера" key="Key">
     <E name="Key" datatype="integer" index="false" default="&quot;1&quot;" view="invisible" displayname="Ключ" dfprotected="true" />
     <E name="ИД_последний_редактор" datatype="text" index="true" displayname="ИД последний редактор" dfhidden="true" view="invisible" />
     <E name="Имя_последний_редактор" datatype="text" index="true" displayname="Имя последний редактор" dfhidden="true" view="invisible" />
-    <S name="Document" displayname="Документ" use="[SOME_NAME]">
-      <E name="Имя_потока" datatype="text" index="false" displayname="Имя потока" view="invisible" dfprotected="true" dfhidden="true" esp="false" />
-      <E name="Регистрационный_номер" datatype="text" index="true" displayname="Регистрационный номер" />
+    <S name="Document" displayname="Документ" use="LLot">
+      <E displayname="Регистрационный номер" name="Регистрационный_номер" datatype="text(249)" index="true" dfprotected="true" dfhidden="true" />
+      <E displayname="Префикс рег. номера" name="Префикс_регномера" datatype="dictionary(Prefix,text)" edit="combobox(Prefix)" index="true" view="invisible" dfprotected="false" />
+      <E displayname="Порядковый рег. номер" name="Число_регномера" datatype="integer(+1..)" index="true" view="invisible" dfprotected="true" required="true" />
+      <E displayname="Суффикс рег. номера" name="Суффикс_регномера" datatype="dictionary(Suffix,text)" edit="combobox(Suffix)" dfprotected="false" index="true" view="invisible" />
+      <E displayname="Дата регистрации" name="Дата_регистрации" datatype="date" edit="" index="true" dfprotected="true" required="true" esp="false" default="nowdate()" />
+      <E displayname="Вид документа" name="Вид_документа" datatype="dictionary(VidDocNames,text)" index="true" dfprotected="true" required="false" edit="combobox" value="&quot;Лот&quot;" view="invisible" />
+      <E displayname="Краткое содержание" name="Краткое_содержание" datatype="longtext" euflag="7" index="true" dfprotected="true" required="false" edit="multiline" awindex="true" default="&quot;Лот&quot;" view="invisible" value="&quot;Лот: &quot; +  Наименование_лота +  &quot;, способ закупки: &quot; + Способ_закупки + &quot;, плановая дата размещения:&quot; + Плановая_дата_размещения + &quot;, НМЦ &quot; + НМЦ_с_НДС " />
+      <E displayname="Имя потока" name="Имя_потока" datatype="text" index="false" view="invisible" dfprotected="true" dfhidden="true" esp="false" />
+      <E displayname="ИД потока" name="ИД_потока" datatype="integer" index="false" dfprotected="true" dfhidden="false" esp="false" view="invisible" />
+      <E displayname="ИД регистратора" name="ИД_регистратора" datatype="integer" index="false" dfprotected="true" dfhidden="false" esp="false" view="invisible" />
+      <E name="header" datatype="text" index="false" value="&quot;Лот&quot; " />
+      <E name="subheader" datatype="text" index="false" view="invisible" />
+      <E name="Статус" datatype="text" index="true" edit="textbox" required="true" />
       <E name="Дата_создания" datatype="date" index="true" displayname="Дата создания" />
       <E name="Редакция" datatype="integer" index="true" displayname="Редакция" />
-      <E name="Статус" datatype="text" index="true" displayname="Статус" />
       <E name="ФИО_ответственного" datatype="text" index="true" displayname="ФИО ответственного" />
       <E name="Группа" datatype="text" index="true" displayname="Группа" />
       <E name="Дополнительная_информация" datatype="longtext" index="true" displayname="Дополнительная информация" />
@@ -25,14 +34,34 @@
       </S>
       <E name="Логическое_поле_2" datatype="boolean" index="true" displayname="Логическое поле 2" />
       <E name="Логическое_поле_3" datatype="boolean" index="true" displayname="Логическое поле 3" />
-      <E name="Согласующий" datatype="addressbook" index="true" displayname="Согласующий" />
+      <E name="Согласующий" datatype="text" index="true" displayname="Согласующий" />
       <E name="Текстовое_поле_5" datatype="text" index="true" displayname="Текстовое поле 5" />
       <E name="Дата_3" datatype="date" index="true" displayname="Дата 3" />
       <E name="Категория" datatype="text" index="true" displayname="Категория" />
       <E name="Комментарий" datatype="longtext" index="true" displayname="Комментарий" />
+      <S name="Организация_заказчик" displayname="Организация заказчик">
+        <E name="Организация_заказчик_наименование" datatype="longtext" index="true" dictpath="" required="true" displayname="Организация заказчик наименование" absettings="&lt;ROOT title=&quot;Организация заказчик&quot; IsMultiple=&quot;False&quot; CanSelectNobody=&quot;False&quot; SelectedUser=&quot;False&quot; SelectedGroup=&quot;False&quot; SelectedDepartments=&quot;False&quot;&gt;&lt;DateDictionary Name=&quot;Departments&quot; DisplayName=&quot;Структура предприятия&quot; /&gt;&lt;/ROOT&gt;" edit="textbox" extype="addressbook" abdata="Name" />
+        <E name="Организация_заказчик" datatype="integer" index="true" displayname="Организация заказчик" required="false" dictpath="" view="invisible" extype="addressbook" abdata="Id" />
+        <E name="Организация_заказчик_ИНН" datatype="text" index="true" displayname="Организация_заказчик_ИНН" extype="addressbook" abdata="INN" />
+        <E name="Организация_заказчик_КПП" datatype="text" index="true" displayname="Организация_заказчик_КПП" extype="addressbook" abdata="KPP" />
+        <E name="Организация_заказчик_Адрес" datatype="text" index="true" displayname="Организация_заказчик_Адрес" extype="addressbook" abdata="Адрес" />
+        <E name="Организация_заказчик_Телефон" datatype="text" index="true" displayname="Организация_заказчик_Телефон" extype="addressbook" abdata="Телефоны" />
+        <E name="Организация_заказчик_Электронная_почта" datatype="text" index="true" displayname="Организация_заказчик_Электронная_почта" extype="addressbook" abdata="E-mail" />
+        <E name="Организация_заказчик_ОГРН" datatype="text" index="true" extype="addressbook" abdata="OGRN" />
+        <E name="Организация_заказчик_ЕИС" datatype="text" index="true" displayname="Организация_заказчик ЕИС" extype="addressbook" abdata="EISCode223" />
+        <E name="ИД_заказчика_на_ЭТП" datatype="text" index="true" displayname="ИД заказчика на ЭТП" />
+        <E name="Коммерческая_организация" datatype="boolean" index="true" displayname="Коммерческая организация" />
+      </S>
+      <S name="Организатор_закупки" displayname="Организатор закупки">
+        <E name="Организатор_закупки_наименование" datatype="longtext" index="true" displayname="Организатор закупки наименование" required="true" dictpath="" edit="textbox" absettings="&lt;ROOT title=&quot;Организатор закупки&quot; IsMultiple=&quot;False&quot; CanSelectNobody=&quot;True&quot; SelectedUser=&quot;True&quot; SelectedGroup=&quot;True&quot; SelectedDepartments=&quot;True&quot;&gt;&lt;DateDictionary Name=&quot;Departments&quot; DisplayName=&quot;Структура предприятия&quot; /&gt;&lt;/ROOT&gt;" extype="addressbook" abdata="Name" />
+        <E name="Организатор_закупки" datatype="integer" index="true" displayname="Организатор закупки" required="false" dictpath="" view="invisible" extype="addressbook" abdata="Id" />
+        <E name="Организатор_закупки_ИНН" datatype="text" index="true" extype="addressbook" abdata="INN" />
+        <E name="Организатор_закупки_КПП" datatype="text" index="true" extype="addressbook" abdata="KPP" />
+        <E name="Организатор_закупки_ОРГН" datatype="text" index="true" extype="addressbook" abdata="OGRN" />
+        <E name="Организатор_закупки_ЕИС" datatype="text" index="true" displayname="Организатор_закупки ЕИС" extype="addressbook" abdata="EISCode223" />
+      </S>
+      <E name="Актуальность" datatype="boolean" index="true" displayname="Актуальность" />
     </S>
   </CONTENT_MODEL>
-  <plugins>
-    <dictionary displayname="Потоки" name="Потоки" progid="FRMITools.FlowsDictionary" initstring="" inittime="once" />
-  </plugins>
+  <plugins></plugins>
 </FORM_DESCRIPTION>
