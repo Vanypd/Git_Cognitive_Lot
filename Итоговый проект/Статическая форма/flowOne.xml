@@ -161,34 +161,18 @@
                         <rows>
                             <row>
                                 <column>
-                                    <block id="11" name="Регистрационные данные">
-                                        <rows>
-                                            <row>
-                                                <column>
-                                                    <field name="Редакция" isLabel="true" />
-                                                    <field fieldType="field" key="|Document|Редакция" valueType="integer" edit-name="Redaction" isValue="true"/>
-                                                </column>
-                                            </row>
-                                        </rows>
-                                    </block>
-                                </column>
-                            </row>
-                            <row>
-                                <column>
                                     <block id="12" name="Ответственный по документу">
                                         <rows>
                                             <row>
                                                 <column>
                                                     <field name="ФИО ответственного" isLabel="true" />
-                                                    <field fieldType="field" key="|Document|ФИО_ответственного"  valueType="text" edit-name="Fullname" isValue="true"/>
+                                                    <field fieldType="field" key="|Document|ФИО_ответственного" valueType="text" edit-name="Fullname" isValue="true"/>
                                                 </column>
-                                            </row>
-                                            <row>
                                                 <column>
                                                     <field name="Группа" isLabel="true" />
                                                     <field fieldType="field" key="|Document|Группа" valueType="text" edit-name="Group" isValue="true"/>
+                                                    <!-- Для получения данных из словаря edit-tool="dictionary:ИмяСловаря" -->
                                                 </column>
-                                                <!-- Для получения данных из словаря edit-tool="dictionary:ИмяСловаря" -->
                                             </row>
                                         </rows>
                                     </block>
@@ -209,17 +193,13 @@
                                                     <field name="Стоимость" isLabel="true" />
                                                     <field fieldType="field" key="|Document|Стоимость" valueType="integer" edit-name="Price" isValue="true"/>
                                                 </column>
-                                            </row>
-                                            <row>
                                                 <column>
                                                     <field name="Налог, %" isLabel="true" />
                                                     <field fieldType="field" key="|Document|Налог" valueType="integer" edit-name="Tax" isValue="true"/>
                                                 </column>
-                                            </row>
-                                            <row>
                                                 <column>
                                                     <field name="Сумма налога" isLabel="true" />
-                                                    <field fieldType="field" key="|Document|Сумма_налога" valueType="integer" edit-name="TaxSum" isValue="true"/>
+                                                    <field fieldType="field" key="|Document|Сумма_налога" valueType="integer" edit-name="TaxSum" isValue="true" edit-disabled="true"/>
                                                 </column>
                                             </row>
                                         </rows>
@@ -247,14 +227,18 @@
                                         <rows>
                                             <row>
                                                 <column>
-                                                    <field name="Логическое поле 2" isLabel="true" />
-                                                    <field fieldType="field" key="|Document|Логическое_поле_2" valueType="boolean" edit-name="LogField2" isValue="true"/>
+                                                    <field name="Дата 3" isLabel="true" />
                                                 </column>
                                             </row>
                                             <row>
                                                 <column>
-                                                    <field name="Логическое поле 3" isLabel="true" />
-                                                    <field fieldType="field" key="|Document|Логическое_поле_3" valueType="boolean" edit-name="LogField3" isValue="true"/>
+                                                    <field fieldType="field" key="|Document|Дата_3" valueType="date" edit-name="Date3" isValue="true" />
+                                                </column>
+                                                <column>
+                                                    <field fieldType="field" key="|Document|Логическое_поле_2" name="Логическое поле 2" valueType="boolean" edit-name="LogField2"/>
+                                                </column>
+                                                <column>
+                                                    <field fieldType="field" key="|Document|Логическое_поле_3" name="Логическое поле 3" valueType="boolean" edit-name="LogField3"/>
                                                 </column>
                                             </row>
                                             <row>
@@ -262,17 +246,9 @@
                                                     <field name="Согласующий" isLabel="true" />
                                                     <field fieldType="field" key="|Document|Согласующий" valueType="addressbook" edit-name="Approver" isValue="true"/>
                                                 </column>
-                                            </row>
-                                            <row>
                                                 <column>
                                                     <field name="Текстовое поле 5" isLabel="true" />
                                                     <field fieldType="field" key="|Document|Текстовое_поле_5" valueType="text" edit-name="TextField5" isValue="true"/>
-                                                </column>
-                                            </row>
-                                            <row>
-                                                <column>
-                                                    <field name="Дата 3" isLabel="true" />
-                                                    <field fieldType="field" key="|Document|Дата_3" valueType="date" edit-name="Date3" isValue="true"/>
                                                 </column>
                                             </row>
                                         </rows>
@@ -301,14 +277,27 @@
                             </row>
                         </rows>
                     </block>
+                </column>
+            </row>
+            <row>
+                <column>
                     <block id="hidden" name="Скрытые поля">
-                        <field fieldType="field" key="|Document|Регистрационный_номер" name="Регистрационный номер" valueType="text" edit-name="RegNum" isValue="true" edit-hidden="true" />
-                        <field fieldType="field" key="|Document|Статус" name="Статус" valueType="text" edit-name="Status" isValue="true" edit-hidden="true"/>
-                        <field fieldType="field" key="|Document|Дата_создания" name="Дата создания" valueType="date" edit-name="CreationDate" isValue="true" edit-hidden="true" />
+                        <rows>
+                            <row>
+                                <column>
+                                    <field fieldType="field" key="|Document|Регистрационный_номер" name="Регистрационный номер" valueType="text" edit-name="RegNum" isValue="true" edit-hidden="true" />
+                                    <field fieldType="field" key="|Document|Статус" name="Статус" valueType="text" edit-name="Status" isValue="true" edit-hidden="true"/>
+                                    <field fieldType="field" key="|Document|Дата_создания" name="Дата создания" valueType="date" edit-name="CreationDate" isValue="true" edit-hidden="true" />
+                                    <field fieldType="field" key="|Document|Редакция" name="Редакция" valueType="integer" edit-name="Redaction" isValue="true" edit-hidden="true"/>
+                                </column>
+                            </row>
+                        </rows>
                     </block>
                 </column>
             </row>
         </rows>
     </edit>
-    <scripts></scripts>
+    <scripts>
+        <script file="~/Scripts/Content/Document/RegCard/FlowOne.js" />
+    </scripts>
 </root>
