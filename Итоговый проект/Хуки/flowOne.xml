@@ -3,70 +3,41 @@
     <LinksModify>
         <LinkCurrentDoc/>
     </LinksModify>
-
     <FieldsModify>
-        
-
-		<CopyField src="|Document|Регистрационный_номер" />
-        <CopyField src="|Document|Редакция" />
-        <CopyField src="|Document|Статус" />
-
-        <CopyField src="|Document|ФИО_ответственного" />
-        <CopyField src="|Document|Группа" />
-
-        <CopyField src="|Document|Дополнительная_информация" />
-        <CopyField src="|Document|Стоимость" />
-        <CopyField src="|Document|Налог" />
-        <CopyField src="|Document|Сумма_налога" />
-
-        <CopyField src="|Document|Table|Поле_1" />
-        <CopyField src="|Document|Table|Поле_2" />
-        <CopyField src="|Document|Table|Поле_3" />
-
-        <CopyField src="|Document|Логическое_поле_2" />
-        <CopyField src="|Document|Логическое_поле_3" />
-        <CopyField src="|Document|Согласующий" />
-        <CopyField src="|Document|Текстовое_поле_5" />
-        <CopyField src="|Document|Дата_3" />
-
-        <CopyField src="|Document|Категория" />
-        <CopyField src="|Document|Комментарий" />
+        <SetField dst="|Document|Статус" value="Новый" />
+        <SetField dst="|Document|Редакция" value="1"/>
     </FieldsModify>
-
+    <FieldsModify source="Заявка на размещение закупки 223ФЗ">
+        <SetField dst="|Document|Имя_потока" value="Поток 1" />
+        <SetField dst="|Document|Редакция" value="({|Document|Идентификатор})"/>
+        <CopyField src="|Document|ФИО_ответственного" />
+        <CopyField src="|Document|Статус" />
+    </FieldsModify>
     <OnDocumentCreated transaction="single">
         <Aggregation>
             <Select>
-
             </Select>
             <Actions>
                 <SetField targetFlow="{current}" targetField="|Document|Имя_потока" value="Поток 1"/>
-				<SetField targetFlow="{current}" targetField="|Document|Статус" value="Новый"/>
-                <SetField targetFlow="{current}" targetField="|Document|Редакция" value="1"/>
-                <SetField targetFlow="{current}" targetField="|Document|Дата_создания" value="{today}"/>
             </Actions>
         </Aggregation>
         <ConditionalActions>
-            <Select>
-
-            </Select>
+            <Conditions>
+            </Conditions>
             <Actions>
-
             </Actions>
         </ConditionalActions>
         <NamedConstants>
             <Constant>
                 <Setting key="IncrementedElementPath" value="|Document|Регистрационный_номер"/>
                 <Setting key="CounterNameFormat" value="({|Document|Имя_потока})"/>
-            </Constant>   
+            </Constant>
         </NamedConstants>
     </OnDocumentCreated>
     <OnRegcardEdited transaction="single">
         <Aggregation>
-
         </Aggregation>
         <ConditionalActions>
-
         </ConditionalActions>
     </OnRegcardEdited>
-
 </Hooks>
